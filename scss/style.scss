@@ -89,6 +89,12 @@ a, button {
   border-left: 1px solid #E8E8E8;
   border-right: 1px solid #E8E8E8;
   border-bottom: 1px solid #E8E8E8;
+  @include bp-medium {
+    width: 600px;
+  }
+  @include bp-small {
+    width: 350px;
+  }
   .top-bar {
     border: 1px solid #E8E8E8;
     border-left: none;
@@ -125,6 +131,9 @@ form#search-wiki {
     padding: 10px;
     float: right;
     margin-right: 1em;
+    @include bp-small {
+      width: 100px;
+    }
     &[type=text] {
       @extend %primaryFont;
       color: #777777;
@@ -165,7 +174,7 @@ form#search-wiki {
   text-align: center;
   color: #dddddd;
   font-size: 14px;
-  margin-top: 4em;
+  margin: 4em 0;
   a {
     color: #dddddd;
     text-decoration: none;

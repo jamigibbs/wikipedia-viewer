@@ -75,6 +75,12 @@ a:hover, button:hover {
   border-left: 1px solid #E8E8E8;
   border-right: 1px solid #E8E8E8;
   border-bottom: 1px solid #E8E8E8; }
+  @media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #content {
+      width: 600px; } }
+  @media only screen and (max-width: 40em) {
+    #content {
+      width: 350px; } }
   #content .top-bar {
     border: 1px solid #E8E8E8;
     border-left: none;
@@ -110,6 +116,9 @@ form#search-wiki {
     padding: 10px;
     float: right;
     margin-right: 1em; }
+    @media only screen and (max-width: 40em) {
+      form#search-wiki input {
+        width: 100px; } }
     form#search-wiki input[type=text] {
       color: #777777; }
   form#search-wiki button {
@@ -139,7 +148,7 @@ form#search-wiki {
   text-align: center;
   color: #dddddd;
   font-size: 14px;
-  margin-top: 4em; }
+  margin: 4em 0; }
   #footer a {
     color: #dddddd;
     text-decoration: none;
