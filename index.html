@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Wikipedia Viewer</title>
+  <meta name="description" content="Wikipedia Viewer">
+  <meta name="author" content="Jami Gibbs">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- v1.12.0 -->
+  <script src="js/jquery.min.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <section class="parent">
+    <div class="child">
+
+      <button id="random-btn">Get random</button>
+      <div id="display"></div>
+      
+      <form action="#">
+        <input id="search-text" type="text">
+        <button id="get-results">Get Results</button>
+      </form>
+
+      <ul id="results"></ul>
+
+    </div>
+  </section>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
