@@ -22,35 +22,33 @@
 <body>
 
   <section class="parent">
-    <div class="child">
 
-      <!-- <ul id="search-history"></ul> -->
+    <div id="site-info">
+      <h1>Wikipedia Viewer</h1>
+      <p>Enter a search term or generate a random article</p>
+    </div>
 
-      <div id="content">
+    <!-- <ul id="search-history"></ul> -->
 
-        <div class="top-bar">
-          <button id="random-btn">Get random</button>
+    <div id="content">
 
-          <form id="search-wiki" action="#">
-            <input id="search-text" placeholder="Type a search and press enter" type="text">
-            <button id="get-results">Search</button>
-          </form>
-        </div>
+      <div class="top-bar">
+        <button id="random-btn">Get random</button>
 
-        <ul id="results">
-          <div id="site-title">
-            <h1>Wikipedia Viewer</h1>
-            <p>Get started by entering a search above or getting a random article.</p>
-          </div>
-        </ul>
-
+        <form id="search-wiki" action="#">
+          <input id="search-text" placeholder="Type a search and press enter" type="text">
+          <button id="get-results">Search</button>
+        </form>
       </div>
 
-      <div id="footer">
-        Made by <a href="https://github.com/jamigibbs/wikipedia-viewer">Jami Gibbs</a>
-      </div>
+      <ul id="results"></ul>
 
     </div>
+
+    <div id="footer">
+      Made by <a href="https://github.com/jamigibbs/wikipedia-viewer">Jami Gibbs</a>
+    </div>
+
   </section>
 
   <script src="js/app.js"></script>

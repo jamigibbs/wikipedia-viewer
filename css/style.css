@@ -48,26 +48,29 @@ a:hover, button:hover {
 
 .parent {
   width: 100%;
-  height: 100%;
-  display: table; }
-  .parent > .child {
-    display: table-cell;
-    vertical-align: middle; }
+  height: 100%; }
 
 /*--------------------------------------------------------------
   2.0 Content
 --------------------------------------------------------------*/
-#site-title {
+#site-info {
   text-align: center;
   padding-bottom: 1em;
   color: #333; }
-  #site-title p {
-    color: #999999; }
+  #site-info h1 {
+    text-align: center;
+    padding-top: 1em;
+    margin-bottom: 0.3em; }
+  #site-info p {
+    color: #b2b1b1;
+    padding-bottom: 2em; }
 
 #content {
   margin: 0 auto;
   display: table;
+  min-height: 450px;
   background-color: white;
+  background: url("../img/logo.png") white no-repeat;
   width: 750px;
   border-left: 1px solid #E8E8E8;
   border-right: 1px solid #E8E8E8;
@@ -108,8 +111,7 @@ form#search-wiki {
     float: right;
     margin-right: 1em; }
     form#search-wiki input[type=text] {
-      color: #777777;
-      font-style: italic; }
+      color: #777777; }
   form#search-wiki button {
     visibility: hidden;
     position: relative;
