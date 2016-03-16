@@ -2,9 +2,11 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 Defaults
+2.0 Content
+3.0 Footer
 --------------------------------------------------------------*/
-body {
-  font-family: 'Open Sans', serif; }
+body, form#search-wiki input[type=text] {
+  font-family: 'Merriweather', serif; }
 
 /*--------------------------------------------------------------
   1.0 Defaults
@@ -12,9 +14,34 @@ body {
 html, body {
   height: 100%; }
 
+body {
+  background-color: #F8F8F8;
+  color: black; }
+
+h1, h2, h3 {
+  font-weight: 400; }
+
+ul {
+  list-style: none;
+  margin-left: 0; }
+
 p {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  line-height: 2; }
+
+a {
+  text-decoration: none;
+  color: black;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  a:hover {
+    color: #FF5B33; }
+
+a:hover, button:hover {
+  cursor: pointer; }
 
 *:focus {
   outline: none; }
@@ -22,10 +49,103 @@ p {
 .parent {
   width: 100%;
   height: 100%;
-  display: table;
-  text-align: center; }
+  display: table; }
   .parent > .child {
     display: table-cell;
     vertical-align: middle; }
+
+/*--------------------------------------------------------------
+  2.0 Content
+--------------------------------------------------------------*/
+#site-title {
+  text-align: center;
+  padding-bottom: 1em;
+  color: #333; }
+  #site-title p {
+    color: #999999; }
+
+#content {
+  margin: 0 auto;
+  display: table;
+  background-color: white;
+  width: 750px;
+  border-left: 1px solid #E8E8E8;
+  border-right: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8; }
+  #content .top-bar {
+    border: 1px solid #E8E8E8;
+    border-left: none;
+    background-color: #F5F5F5;
+    height: 50px; }
+
+#random-btn {
+  float: left;
+  border: none;
+  background-color: #F5F5F5;
+  color: black;
+  border-right: 1px solid #E8E8E8;
+  height: 50px;
+  width: 125px;
+  text-transform: uppercase;
+  font-weight: 900;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+  #random-btn:hover {
+    color: #e5350a;
+    background-color: #F8F8F8; }
+
+form#search-wiki {
+  float: right;
+  height: 50px; }
+  form#search-wiki input {
+    height: 10px;
+    position: relative;
+    top: 8px;
+    width: 200px;
+    padding: 10px;
+    float: right;
+    margin-right: 1em; }
+    form#search-wiki input[type=text] {
+      color: #777777;
+      font-style: italic; }
+  form#search-wiki button {
+    visibility: hidden;
+    position: relative;
+    right: -999999px; }
+
+#results {
+  padding: 1.5em 4em 2em 4em; }
+  #results h3 a {
+    color: #FF5B33; }
+    #results h3 a:hover {
+      color: #e5350a; }
+  #results li {
+    padding-bottom: 1em; }
+  #results a.read-more {
+    font-size: 14px;
+    font-style: italic;
+    color: #FF5B33; }
+    #results a.read-more:hover {
+      color: #e5350a; }
+
+/*--------------------------------------------------------------
+  3.0 Footer
+--------------------------------------------------------------*/
+#footer {
+  text-align: center;
+  color: #dddddd;
+  font-size: 14px;
+  margin-top: 4em; }
+  #footer a {
+    color: #dddddd;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+    #footer a:hover {
+      color: #FF5B33; }
 
 /*# sourceMappingURL=style.css.map */

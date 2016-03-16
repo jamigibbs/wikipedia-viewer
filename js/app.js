@@ -55,15 +55,19 @@
         for(var i = 0; i < data.query.search.length; i++){
           var title = data.query.search[i].title;
           var snippet = data.query.search[i].snippet;
-          $("#results").append("<li><a target='_blank' href='http://en.wikipedia.org/wiki/" + title + "'>" + title + "</a><p>" + snippet +  "...</p></li>");
+
+          $("#results").append("<li><h3><a target='_blank' href='http://en.wikipedia.org/wiki/" + title + "'>" + title + "</a></h3><p>" + snippet +  "...</p></li>");
         }
       // Random article
       } else {
         var pages = data.query.pages;
         var page = pages[Object.keys(pages)[0]];
+        var titleRandom = page.title;
+        var link = "http://en.wikipedia.org/wiki/" + titleRandom;
+        var extract = page.extract;
 
-        $('#display').append("<h2><a target='_blank' href='http://en.wikipedia.org/wiki/" + page.title + "'>" + page.title + "</a></h2>");
-        $('#display').append($('<p>').text(page.extract));
+        $('#results').append("<h2><a target='_blank' href='" + link + "'>" + titleRandom + "</a></h2>");
+        $('#results').append("<p>" + extract + " <a class='read-more' target='_blank'  href='" + link + "'>read more</a></p>");
       }
     }
 
@@ -72,7 +76,7 @@
      */
     this.wikiRandom = function wikiRandom(){
       $('#random-btn').click(function () {
-        $('#display').empty();
+        //$('#display').empty();
         $('#results').empty();
 
         wikiGenerator('random', 'revisions|images|extracts');
@@ -89,7 +93,7 @@
 
         $('#results').empty();
         $('#search-text').val('');
-        $('#display').empty();
+        //$('#display').empty();
 
         wikiGenerator('allpages', null, 'search', searchItem);
       });

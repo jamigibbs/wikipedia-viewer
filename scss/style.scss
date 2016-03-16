@@ -2,10 +2,12 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 Defaults
+2.0 Content
+3.0 Footer
 --------------------------------------------------------------*/
 
 @import 'mixins';
-%opensans { font-family: 'Open Sans', serif; }
+%primaryFont { font-family: 'Merriweather', serif; }
 
 /*--------------------------------------------------------------
   1.0 Defaults
@@ -15,25 +17,158 @@ html, body {
 }
 
 body {
-  @extend %opensans;
+  @extend %primaryFont;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+h1, h2, h3 {
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
 }
 
 p {
   margin: 0;
   padding: 0;
+  line-height: 2;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  @include transition(all .2s ease-in-out);
+  &:hover {
+    color: #FF5B33;
+  }
+}
+
+a, button {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .parent {
   width: 100%;
   height: 100%;
   display: table;
-  text-align: center;
   > .child {
       display: table-cell;
       vertical-align: middle;
+  }
+}
+/*--------------------------------------------------------------
+  2.0 Content
+--------------------------------------------------------------*/
+#site-title {
+  text-align: center;
+  padding-bottom: 1em;
+  color: #333;
+  p {
+    color: #999999;
+  }
+
+}
+#content {
+  margin: 0 auto;
+  display: table;
+  background-color: white;
+  width: 750px;
+  border-left: 1px solid #E8E8E8;
+  border-right: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+  .top-bar {
+    border: 1px solid #E8E8E8;
+    border-left: none;
+    background-color: #F5F5F5;
+    height: 50px;
+  }
+}
+
+#random-btn {
+  float: left;
+  border: none;
+  background-color: #F5F5F5;
+  color: black;
+  border-right: 1px solid #E8E8E8;
+  height: 50px;
+  width: 125px;
+  text-transform: uppercase;
+  font-weight: 900;
+  @include transition(all .2s ease-in-out);
+  &:hover {
+    color: #e5350a;
+    background-color: #F8F8F8;
+  }
+}
+
+form#search-wiki {
+  float: right;
+  height: 50px;
+  input {
+    height: 10px;
+    position: relative;
+    top: 8px;
+    width: 200px;
+    padding: 10px;
+    float: right;
+    margin-right: 1em;
+    &[type=text] {
+      @extend %primaryFont;
+      color: #777777;
+      font-style: italic;
+    }
+  }
+  button {
+    visibility: hidden;
+    position: relative;
+    right: -999999px;
+  }
+}
+
+#results {
+  padding: 1.5em 4em 2em 4em;
+  h3 a {
+    color: #FF5B33;
+    &:hover {
+      color: #e5350a;
+    }
+  }
+  li {
+    padding-bottom: 1em;
+  }
+  a.read-more {
+    font-size: 14px;
+    font-style: italic;
+    color: #FF5B33;
+    &:hover {
+      color: #e5350a;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+  3.0 Footer
+--------------------------------------------------------------*/
+#footer {
+  text-align: center;
+  color: #dddddd;
+  font-size: 14px;
+  margin-top: 4em;
+  a {
+    color: #dddddd;
+    text-decoration: none;
+    @include transition(all .2s ease-in-out);
+    &:hover {
+      color: #FF5B33;
+    }
   }
 }

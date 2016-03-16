@@ -8,7 +8,7 @@
   <meta name="description" content="Wikipedia Viewer">
   <meta name="author" content="Jami Gibbs">
 
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,900,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 
   <!-- v1.12.0 -->
@@ -26,15 +26,29 @@
 
       <ul id="search-history"></ul>
 
-      <button id="random-btn">Get random</button>
-      <div id="display"></div>
+      <div id="content">
 
-      <form action="#">
-        <input id="search-text" type="text">
-        <button id="get-results">Get Results</button>
-      </form>
+        <div class="top-bar">
+          <button id="random-btn">Get random</button>
 
-      <ul id="results"></ul>
+          <form id="search-wiki" action="#">
+            <input id="search-text" placeholder="Type a search and press enter" type="text">
+            <button id="get-results">Search</button>
+          </form>
+        </div>
+
+        <ul id="results">
+          <div id="site-title">
+            <h1>Wikipedia Viewer</h1>
+            <p>Get started by entering a search above or getting a random article.</p>
+          </div>
+        </ul>
+
+      </div>
+
+      <div id="footer">
+        Made by <a href="https://github.com/jamigibbs/wikipedia-viewer">Jami Gibbs</a>
+      </div>
 
     </div>
   </section>
