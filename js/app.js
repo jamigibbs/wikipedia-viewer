@@ -7,6 +7,8 @@
 
   function WikiModule() {
 
+    var searchHistory = [];
+
     /**
      * Our function to call the Wikipedia API
      * @param {string} generator - The way data is created (ie. 'random', 'allpages' ).
@@ -46,7 +48,6 @@
      * @param {string} searchItem - (optional) String to search for.
      */
     function wikiDisplay(data, searchItem){
-      console.log(data);
       // Search results
       if(data.query.search){
         $('#results').prepend($('<h2>').text('Results for: ' + searchItem));
@@ -84,12 +85,24 @@
     this.wikiResults = function wikiResults(){
       $('#get-results').click(function () {
         var searchItem = document.getElementById('search-text').value;
+        searchHistory.push(searchItem);
 
         $('#results').empty();
         $('#search-text').val('');
         $('#display').empty();
 
         wikiGenerator('allpages', null, 'search', searchItem);
+      });
+    };
+
+    /**
+     * Generate a search history list
+     */
+    this.wikiSearches = function wikiSearches(){
+      $('#get-results').click(function () {
+        for(var i = 0; i < searchHistory.length; i++){
+          $("#results").append("<li>" + searchHistory[i] + "</li>");
+        }
       });
     };
 
@@ -103,3 +116,4 @@
 var WikiModule = new WikiModule();
 WikiModule.wikiRandom();
 WikiModule.wikiResults();
+WikiModule.wikiSearches();
