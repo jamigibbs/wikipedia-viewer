@@ -120,4 +120,4 @@
 var WikiModule = new WikiModule();
 WikiModule.wikiRandom();
 WikiModule.wikiResults();
-WikiModule.wikiSearches();
+//WikiModule.wikiSearches();
