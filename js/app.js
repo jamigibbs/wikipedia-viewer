@@ -3,7 +3,7 @@
   * @see https://carldanley.com/js-module-pattern/
   */
 
-(function($, window, undefined) {
+(function(window, undefined) {
 
   function WikiModule() {
 
@@ -79,7 +79,10 @@
         //$('#display').empty();
         $('#results').empty();
 
-        wikiGenerator('random', 'revisions|images|extracts');
+        $(document).ready(function() {
+          wikiGenerator('random', 'revisions|images|extracts');
+        });
+
       });
     };
 
@@ -95,7 +98,10 @@
         $('#search-text').val('');
         //$('#display').empty();
 
-        wikiGenerator('allpages', null, 'search', searchItem);
+        $(document).ready(function() {
+          wikiGenerator('allpages', null, 'search', searchItem);
+        });
+
       });
     };
 
@@ -115,7 +121,7 @@
   // Expose access to the constructor
   window.WikiModule = WikiModule;
 
-})(window.jQuery, window);
+})(window);
 
 var WikiModule = new WikiModule();
 WikiModule.wikiRandom();
