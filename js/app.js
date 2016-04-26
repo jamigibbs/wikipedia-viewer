@@ -1,22 +1,24 @@
-/**
-  * We're using the module pattern here because reasons.
-  * @see https://carldanley.com/js-module-pattern/
-  */
+(function() {
+  'use strict';
 
-(function(window, undefined) {
+  var WikiViewer = {
+    searchHistory: [],
 
-  function WikiModule() {
-
-    var searchHistory = [];
+    init: function(){
+      var that = this;
+      that.wikiRandom();
+      that.wikiResults();
+    },
 
     /**
-     * Our function to call the Wikipedia API
+     * Our method to call the Wikipedia API
      * @param {string} generator - The way data is created (ie. 'random', 'allpages' ).
      * @param {string} prop - Elements of the data returned (ie. 'images|extracts').
      * @param {string} list - (ie. 'search').
      * @param {string} srsearch - The search term (ie. 'cats').
      */
-    function wikiGenerator(generator, prop, list, srsearch){
+    wikiGenerator: function(generator, prop, list, srsearch){
+      var that = this;
       $.ajax({
         url: 'http://en.wikipedia.org/w/api.php',
         dataType: 'jsonp',
@@ -34,20 +36,20 @@
           //grnlimit: 1
         },
         success: function(data){
-          wikiDisplay(data, srsearch);
+          that.wikiDisplay(data, srsearch);
         },
         error: function (errorMessage) {
           console.error('Error: ', errorMessage);
         }
       });
-    }
+    },
 
     /**
      * Will display content returned from Wikipedia
      * @param {Object} data - The data object returned.
      * @param {string} searchItem - (optional) String to search for.
      */
-    function wikiDisplay(data, searchItem){
+    wikiDisplay: function(data, searchItem){
       // Search results
       if(data.query.search){
         $('#results').prepend($('<h2>').text('Results for: ' + searchItem));
@@ -69,61 +71,48 @@
         $('#results').append("<h2><a target='_blank' href='" + link + "'>" + titleRandom + "</a></h2>");
         $('#results').append("<p>" + extract + " <a class='read-more' target='_blank'  href='" + link + "'>read more</a></p>");
       }
-    }
+    },
 
-    /**
-     * Generate our random wiki article
-     */
-    this.wikiRandom = function wikiRandom(){
+    // Generate our random wiki article
+    wikiRandom: function(){
+      var that = this;
       $('#random-btn').on('click', function () {
         //$('#display').empty();
         $('#results').empty();
 
-        $(document).ready(function() {
-          wikiGenerator('random', 'revisions|images|extracts');
-        });
-
+        that.wikiGenerator('random', 'revisions|images|extracts');
       });
-    };
+    },
 
-    /**
-     * Generate our wiki search results
-     */
-    this.wikiResults = function wikiResults(){
+    // Generate our wiki search results
+    wikiResults: function(){
+      var that = this;
       $('#get-results').on('click', function () {
         var searchItem = document.getElementById('search-text').value;
-        searchHistory.push(searchItem);
+        that.searchHistory.push(searchItem);
 
         $('#results').empty();
         $('#search-text').val('');
         //$('#display').empty();
 
-        $(document).ready(function() {
-          wikiGenerator('allpages', null, 'search', searchItem);
-        });
-
+        that.wikiGenerator('allpages', null, 'search', searchItem);
       });
-    };
+    },
 
-    /**
-     * Generate a search history list
-     */
-    this.wikiSearches = function wikiSearches(){
+    // Generate a search history list
+    // TODO: Apply to the frontend display
+    wikiSearches: function(){
       $('#get-results').on('click', function () {
         for(var i = 0; i < searchHistory.length; i++){
           $("#results").append("<li>" + searchHistory[i] + "</li>");
         }
       });
-    };
+    },
 
-  }
+  };
 
-  // Expose access to the constructor
-  window.WikiModule = WikiModule;
+  $(document).ready(function(){
+    WikiViewer.init();
+  });
 
-})(window);
-
-var WikiModule = new WikiModule();
-WikiModule.wikiRandom();
-WikiModule.wikiResults();
-//WikiModule.wikiSearches();
+})();
