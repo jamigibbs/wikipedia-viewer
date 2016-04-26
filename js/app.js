@@ -75,7 +75,7 @@
      * Generate our random wiki article
      */
     this.wikiRandom = function wikiRandom(){
-      $('#random-btn').click(function () {
+      $('#random-btn').on('click', function () {
         //$('#display').empty();
         $('#results').empty();
 
@@ -90,7 +90,7 @@
      * Generate our wiki search results
      */
     this.wikiResults = function wikiResults(){
-      $('#get-results').click(function () {
+      $('#get-results').on('click', function () {
         var searchItem = document.getElementById('search-text').value;
         searchHistory.push(searchItem);
 
@@ -109,7 +109,7 @@
      * Generate a search history list
      */
     this.wikiSearches = function wikiSearches(){
-      $('#get-results').click(function () {
+      $('#get-results').on('click', function () {
         for(var i = 0; i < searchHistory.length; i++){
           $("#results").append("<li>" + searchHistory[i] + "</li>");
         }
